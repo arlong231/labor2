@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청소년 노동권 구조대 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+  :root {
+    --red: #D72B2B;
+    --red-dark: #A81E1E;
+    --red-light: #FF4444;
+    --navy: #0D1B3E;
+    --navy-mid: #1A2E5C;
+    --navy-light: #243A72;
+    --gold: #F5C518;
+    --white: #FFFFFF;
+    --off-white: #F8F4EE;
+    --gray-light: #EEE8DE;
+    --gray: #B0A99A;
+    --text-dark: #1A0A00;
+    --shadow: 0 4px 24px rgba(13,27,62,0.18);
+    --shadow-lg: 0 8px 40px rgba(13,27,62,0.28);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--navy);
+    color: var(--text-dark);
+    min-height: 100vh;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px);
+  }
+
+  /* ── SAVE BAR ── */
+  .save-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-bottom: 3px solid var(--red);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+
+  .btn-save {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 3px 12px rgba(215,43,43,0.5);
+    transition: transform 0.15s, box-shadow 0.15s;
+    white-space: nowrap;
+  }
+  .btn-save:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(215,43,43,0.6); }
+  .btn-save:active { transform: translateY(0); }
+  .btn-save .icon { font-size: 16px; }
+
+  /* ── MAIN WRAPPER ── */
+  #capture-area {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0D1B3E 0%, #1A2E5C 50%, #243A72 100%);
+    border-radius: 16px 16px 0 0;
+    padding: 28px 28px 22px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid var(--gold);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: 30%;
+    width: 120px; height: 120px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .hero-main-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-left { flex: 1; min-width: 200px; }
+  .hero-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(28px, 5vw, 46px);
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    text-shadow: 2px 3px 0 rgba(0,0,0,0.3);
+  }
+  .hero-title span { color: var(--gold); }
+  .hero-sub {
+    margin-top: 10px;
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .hero-student-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(0,0,0,0.25);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 14px 16px;
+    min-width: 180px;
+    backdrop-filter: blur(4px);
+    position: relative;
+    z-index: 1;
+  }
+  .hero-student-label {
+    font-family: 'Black Han Sans', sans-serif;
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+  }
+  .hero-input {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 7px;
+    color: var(--white);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    padding: 8px 12px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+  }
+  .hero-input::placeholder { color: rgba(255,255,255,0.45); }
+  .hero-input:focus {
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.2);
+  }
+  .hero-emblem {
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 72px;
+    opacity: 0.1;
+    filter: drop-shadow(0 0 20px #fff);
+    pointer-events: none;
+  }
+
+  /* ── SHEET BODY ── */
+  .sheet-body {
+    background: var(--off-white);
+    border-radius: 0 0 16px 16px;
+    padding: 28px 24px 32px;
+  }
+
+  /* ── MISSION BLOCK ── */
+  .mission-block {
+    margin-bottom: 32px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .mission-header {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .mission-num {
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .mission-title-text {
+    font-family: 'Black Han Sans', sans-serif;
+    color: var(--white);
+    font-size: 17px;
+    letter-spacing: 0.5px;
+  }
+  .mission-icon { font-size: 22px; margin-left: auto; }
+
+  .mission-content {
+    background: var(--white);
+    padding: 22px 20px;
+  }
+
+  /* ── WAGE ALERT ── */
+  .wage-alert {
+    background: linear-gradient(135deg, #FFF3CD, #FFEAA0);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .wage-alert .icon { font-size: 28px; }
+  .wage-alert .text { flex: 1; }
+  .wage-alert .text strong {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 15px;
+    color: var(--red-dark);
+    display: block;
+  }
+  .wage-alert .text span { font-size: 13px; color: #555; }
+  .wage-amount {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 24px;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  /* ── FORM GRID ── */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+  .form-item label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+    letter-spacing: 0.3px;
+  }
+  .form-item label .req { color: var(--red); }
+  .form-item input[type="text"] {
+    width: 100%;
+    border: 2px solid var(--gray-light);
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--off-white);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-item input[type="text"]:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(13,27,62,0.12);
+    background: #fff;
+  }
+
+  /* ── CHECKLIST ── */
+  .check-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    margin-bottom: 10px;
+    padding-left: 4px;
+    border-left: 3px solid var(--red);
+    padding-left: 10px;
+  }
+  .checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media (max-width: 500px) { .checklist { grid-template-columns: 1fr; } }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--off-white);
+    border: 2px solid var(--gray-light);
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .check-item:hover { border-color: var(--navy-light); }
+  .check-item.checked {
+    border-color: var(--red);
+    background: #FFF0F0;
+  }
+  .check-item input[type="checkbox"] { display: none; }
+  .custom-check {
+    width: 20px; height: 20px;
+    border: 2px solid var(--gray);
+    border-radius: 5px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+  .check-item.checked .custom-check {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+  }
+  .check-label { font-size: 13px; font-weight: 500; color: var(--text-dark); line-height: 1.3; }
+
+  /* ── SCENARIO BOX ── */
+  .scenario-box {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .scenario-box::before {
+    content: '⚠';
+    position: absolute;
+    right: 16px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    opacity: 0.08;
+  }
+  .scenario-tag {
+    background: var(--red);
+    color: #fff;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .scenario-text {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+  .scenario-text .amount {
+    color: var(--gold);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 20px;
+  }
+
+  /* ── EMOTION SECTION ── */
+  .emotion-section {
+    background: #F0F4FF;
+    border: 2px solid #C5D0F5;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+  .emotion-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .emotion-q {
+    margin-bottom: 12px;
+  }
+  .emotion-q label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .emotion-q input[type="text"] {
+    width: 100%;
+    border: 2px solid #C5D0F5;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .emotion-q input[type="text"]:focus { border-color: var(--navy); }
+  .emotion-hint {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .action-banner {
+    background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .action-banner .arrow { font-size: 20px; }
+
+  /* ── PORTAL TABLE ── */
+  .portal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  .portal-table thead tr {
+    background: var(--navy);
+    color: #fff;
+  }
+  .portal-table thead th {
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: left;
+  }
+  .portal-table thead th:first-child { width: 38%; }
+  .portal-table tbody tr { border-bottom: 1px solid var(--gray-light); }
+  .portal-table tbody tr:last-child { border-bottom: none; }
+  .portal-table tbody td {
+    padding: 10px 14px;
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .portal-table tbody td:first-child {
+    font-weight: 700;
+    color: var(--navy-mid);
+    background: #F5F7FF;
+  }
+  .portal-table tbody td input[type="text"] {
+    width: 100%;
+    border: 2px solid var(--gray-light);
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    background: var(--off-white);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .portal-table tbody td input[type="text"]:focus {
+    border-color: var(--navy);
+    background: #fff;
+  }
+
+  /* ── PETITION POPUP ── */
+  .petition-btn-wrap { text-align: center; margin-bottom: 18px; }
+  .btn-example {
+    background: var(--white);
+    border: 2.5px solid var(--navy);
+    color: var(--navy);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-example:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 14px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: modalIn 0.25s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.93) translateY(20px); }
+    to { opacity: 1; transform: none; }
+  }
+  .modal-header {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: #fff;
+    padding: 18px 22px;
+    border-radius: 14px 14px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .modal-header h3 { font-family: 'Black Han Sans', sans-serif; font-size: 16px; }
+  .modal-close {
+    background: none; border: none; color: #fff;
+    font-size: 22px; cursor: pointer; line-height: 1;
+  }
+  .modal-body { padding: 22px; }
+  .petition-sample {
+    background: var(--off-white);
+    border: 1.5px dashed var(--gray);
+    border-radius: 8px;
+    padding: 18px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text-dark);
+  }
+  .petition-sample .p-title {
+    text-align: center;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 16px;
+    letter-spacing: 4px;
+  }
+  .petition-sample .p-section {
+    font-weight: 700;
+    color: var(--red-dark);
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+  .petition-sample .p-fill {
+    background: #FFF3CD;
+    border-bottom: 1.5px solid var(--gold);
+    display: inline;
+    padding: 0 4px;
+    border-radius: 2px;
+  }
+  .petition-tip {
+    background: #E8F0FE;
+    border-left: 4px solid #3B5BDB;
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin-top: 14px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #1A237E;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 22px 0 16px;
+  }
+  .section-divider span {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .section-divider::before, .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: var(--gray-light);
+  }
+
+  /* ── COMMITMENT BOX ── */
+  .commitment-block {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, var(--red-dark) 100%);
+    border-radius: 12px;
+    padding: 24px 22px;
+    margin-top: 10px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .commitment-block::after {
+    content: '✊';
+    position: absolute;
+    right: 20px; bottom: -5px;
+    font-size: 80px;
+    opacity: 0.08;
+  }
+  .commitment-label {
+    font-family: 'Black Han Sans', sans-serif;
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .commitment-input {
+    width: 100%;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .commitment-input::placeholder { color: rgba(255,255,255,0.4); }
+  .commitment-input:focus {
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.18);
+  }
+
+  /* ── FOOTER ── */
+  .sheet-footer {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    padding: 0 8px 8px;
+  }
+
+  /* ── CONTRACT FORM ── */
+  .contract-form {
+    background: #FDFAF5;
+    border: 2px solid var(--navy);
+    border-radius: 10px;
+    padding: 22px 22px 18px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05), 0 3px 12px rgba(13,27,62,0.1);
+    position: relative;
+  }
+  .contract-form::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-radius: 8px 8px 0 0;
+  }
+  .contract-title {
+    text-align: center;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 24px;
+    color: var(--navy);
+    letter-spacing: 8px;
+    padding: 12px 0 4px;
+  }
+  .contract-subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  .contract-section-label {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--red-dark);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1.5px dashed var(--gray-light);
+  }
+  .contract-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .contract-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 180px;
+  }
+  .cf-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    white-space: nowrap;
+    min-width: 68px;
+    text-align: right;
+  }
+  .cf-input {
+    flex: 1;
+    border: none;
+    border-bottom: 1.8px solid var(--navy-light);
+    border-radius: 0;
+    background: transparent;
+    padding: 5px 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .cf-input:focus { border-color: var(--red); }
+  .cf-input::placeholder { color: #C5BDB0; font-size: 12px; }
+
+  .contract-cond-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  @media (max-width: 560px) { .contract-cond-grid { grid-template-columns: 1fr; } }
+  .cond-item {
+    background: #F5F7FF;
+    border: 1.5px solid #DCE3F5;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .cond-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    margin-bottom: 6px;
+  }
+  .cond-value-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .cond-note {
+    font-size: 11px;
+    color: var(--red-dark);
+    line-height: 1.4;
+  }
+
+  .contract-sign-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 2px solid var(--navy);
+    flex-wrap: wrap;
+  }
+  .contract-sign-box {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+  }
+  .sign-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    margin-bottom: 6px;
+  }
+  .sign-input {
+    border: none;
+    border-bottom: 1.8px solid var(--navy);
+    width: 100%;
+    background: transparent;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    padding: 5px 4px;
+    outline: none;
+    color: var(--text-dark);
+  }
+  .sign-input::placeholder { color: #C5BDB0; font-size: 12px; }
+  .sign-input:focus { border-color: var(--red); }
+  .contract-date-box {
+    text-align: center;
+    flex: 1.2;
+    min-width: 140px;
+  }
+  .date-input {
+    border: none;
+    border-bottom: 1.8px solid var(--navy);
+    width: 100%;
+    background: transparent;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    padding: 5px 4px;
+    outline: none;
+    color: var(--text-dark);
+  }
+  .date-input::placeholder { color: #C5BDB0; font-size: 12px; }
+  .date-input:focus { border-color: var(--red); }
+
+
+  /* ── WORK TYPE CHIPS ── */
+  .ci-work-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding-left: 26px;
+    margin-top: 2px;
+  }
+  .work-chip {
+    background: #EEF2FF;
+    border: 1.5px solid #C5D0F5;
+    color: var(--navy-mid);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 11px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    user-select: none;
+  }
+  .work-chip:hover {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+
+  /* ── INSURANCE STATIC ── */
+  .ci-insurance-static {
+    padding-left: 26px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ins-static-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .ins-static-item {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .ins-apply { color: var(--navy); }
+  .ins-na { color: #999; font-weight: 400; }
+  .ins-na-note { font-size: 11px; color: #AAA; font-weight: 400; }
+  .ins-tip {
+    background: #EEF4FF;
+    border-left: 3px solid var(--navy-light);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* ── STANDARD CONTRACT FORM LAYOUT ── */
+  .contract-parties-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: #F0F4FF;
+    border: 1.5px solid #C8D4F5;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--text-dark);
+    line-height: 1.7;
+  }
+  .party-input {
+    width: 160px !important;
+    flex: none !important;
+    display: inline-block;
+  }
+  .party-text {
+    font-size: 13px;
+    color: #444;
+  }
+
+  .contract-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1.5px solid #C8C0B0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .ci-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-bottom: 1px solid #E8E0D5;
+    font-size: 13px;
+    flex-wrap: wrap;
+    background: #fff;
+  }
+  .ci-row:last-child { border-bottom: none; }
+  .ci-row:nth-child(even) { background: #FAFAF7; }
+  .ci-row-multiline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 14px;
+  }
+  .ci-row-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .ci-num {
+    font-weight: 700;
+    color: var(--navy-mid);
+    min-width: 18px;
+    font-size: 13px;
+  }
+  .ci-key {
+    font-weight: 700;
+    color: var(--navy);
+    min-width: 110px;
+    font-size: 13px;
+  }
+  .ci-colon { color: #666; }
+  .ci-val {
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+  }
+  .ci-note {
+    font-size: 11px;
+    color: #888;
+    font-weight: 400;
+  }
+  .ci-sub-note {
+    font-size: 11.5px;
+    color: var(--red-dark);
+    padding-left: 26px;
+    font-weight: 600;
+  }
+
+  .ci-wage-block {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding-left: 26px;
+    width: 100%;
+  }
+  .ci-wage-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ci-wage-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    min-width: 70px;
+  }
+  .ci-wage-note {
+    font-size: 11.5px;
+    color: var(--red-dark);
+    font-weight: 600;
+  }
+
+  .ci-docs-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 26px;
+    width: 100%;
+  }
+  .ci-doc-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ci-doc-label {
+    font-size: 12.5px;
+    color: #444;
+    min-width: 200px;
+  }
+  .ci-checkbox-group {
+    display: flex;
+    gap: 14px;
+    cursor: pointer;
+  }
+  .doc-check-box {
+    font-size: 13px;
+    color: #555;
+    transition: color 0.15s;
+    user-select: none;
+  }
+  .doc-check-box.checked {
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  .ci-insurance-block {
+    display: flex;
+    gap: 16px;
+    padding-left: 26px;
+    flex-wrap: wrap;
+  }
+  .ins-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    padding: 4px 8px;
+    border-radius: 5px;
+    transition: background 0.15s;
+  }
+  .ins-item:hover { background: #F0F4FF; }
+  .ins-item.checked { color: var(--red); font-weight: 700; }
+  .ins-box { font-size: 14px; }
+  .ins-item.checked .ins-box::before { content: '☑'; }
+  .ins-item:not(.checked) .ins-box::before { content: '□'; }
+  .ins-box { font-size: 14px; display: none; }
+  .ins-item .ins-box { display: inline; }
+
+  /* Sign area */
+  .contract-sign-area {
+    border-top: 2px solid var(--navy);
+    padding-top: 14px;
+    margin-bottom: 10px;
+  }
+  .sign-date-line {
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .sign-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 540px) { .sign-two-col { grid-template-columns: 1fr; } }
+  .sign-party {
+    border: 1.5px solid #C8C0B0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #FAFAF7;
+  }
+  .sign-party-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 13px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px dashed #CCC;
+  }
+  .sign-party-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .sign-key {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    min-width: 52px;
+    white-space: nowrap;
+  }
+
+  /* ── PREFILLED vs ACTIVE fields ── */
+  .cf-prefilled {
+    flex: 1;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13.5px;
+    color: #555;
+    border-bottom: 1.8px solid #D0CCC5;
+    padding: 5px 4px;
+    display: inline-block;
+    width: 100%;
+    background: transparent;
+  }
+  .cf-active {
+    border-bottom-color: var(--red) !important;
+    background: #FFF8F8 !important;
+    font-weight: 600;
+  }
+  .cf-active::placeholder { color: #FFAAAA !important; }
+  .cond-item.cond-active {
+    background: #FFF5F5;
+    border-color: #FFCACA;
+  }
+  .sign-active {
+    border-bottom-color: var(--red) !important;
+    background: #FFF8F8 !important;
+  }
+  .sign-active::placeholder { color: #FFAAAA !important; }
+  .contract-fill-legend {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 11.5px;
+    color: #888;
+    background: #F5F5F5;
+    border-radius: 6px;
+    padding: 7px 12px;
+    border: 1px dashed #CCC;
+  }
+
+  /* ── SAVING OVERLAY ── */
+  .saving-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .saving-overlay.active { display: flex; }
+  .saving-spinner {
+    width: 48px; height: 48px;
+    border: 5px solid rgba(255,255,255,0.2);
+    border-top-color: var(--red);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .saving-text {
+    color: #fff;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- SAVE BAR -->
+<div class="save-bar" id="save-bar">
+  <button class="btn-save" onclick="saveImage()">
+    <span class="icon">📸</span> 나의 활동지 이미지로 저장하기
+  </button>
+</div>
+
+<!-- CAPTURE AREA -->
+<div id="capture-area">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">📚 중학교 사회 · 노동권 교육</div>
+    <div class="hero-main-row">
+      <div class="hero-left">
+        <div class="hero-title">청소년 <span>노동권</span><br>구조대</div>
+        <div class="hero-sub">내 권리를 알고, 지키고, 행동하라!</div>
+      </div>
+      <div class="hero-student-box">
+        <div class="hero-student-label">📋 학생 정보</div>
+        <input type="text" id="student-id" class="hero-input" placeholder="예) 30101-홍길동" maxlength="20">
+        <input type="text" id="student-name" class="hero-input" placeholder="예) 30102-김민지" maxlength="20">
+      </div>
+    </div>
+    <div class="hero-emblem">🛡️</div>
+  </div>
+
+  <div class="sheet-body">
+
+    <!-- ══════ MISSION 1 ══════ -->
+    <div class="mission-block">
+      <div class="mission-header">
+        <span class="mission-num">MISSION 01</span>
+        <span class="mission-title-text">연소자(청소년) 근로계약서 작성하기</span>
+        <span class="mission-icon">📝</span>
+      </div>
+      <div class="mission-content">
+
+        <!-- 최저임금 알림 -->
+        <div class="wage-alert">
+          <div class="icon">💰</div>
+          <div class="text">
+            <strong>2026년 최저임금 안내</strong>
+            <span>청소년도 성인과 동일하게 적용! 이보다 낮으면 위법입니다.</span>
+          </div>
+          <div class="wage-amount">10,320원 / 시간</div>
+        </div>
+
+        <!-- 근로계약서 양식 -->
+        <div class="contract-form">
+          <div class="contract-title">연소근로자 표준 근로계약서</div>
+          <div class="contract-subtitle">만 18세 미만 · 고용노동부 표준 양식 기반</div>
+
+          <!-- 계약 당사자 소개문 -->
+          <div class="contract-parties-row">
+            <input type="text" class="cf-input cf-active party-input" id="c-biz" placeholder="사업주 이름 또는 상호 직접 입력">
+            <span class="party-text">(이하 "사업주"라 함)과(와)</span>
+            <input type="text" class="cf-input cf-active party-input" id="c-name" placeholder="근로자(본인) 이름 직접 입력">
+            <span class="party-text">(이하 "근로자"라 함)은 다음과 같이 근로계약을 체결한다.</span>
+          </div>
+
+          <!-- 항목 리스트 -->
+          <div class="contract-items">
+
+            <div class="ci-row">
+              <span class="ci-num">1.</span>
+              <span class="ci-key">근로개시일</span>
+              <span class="ci-colon">:</span>
+              <span class="cf-prefilled ci-val">2026년 12월 26일부터 2027년 2월 25일까지 <span class="ci-note">（겨울방학 기간）</span></span>
+            </div>
+
+            <div class="ci-row">
+              <span class="ci-num">2.</span>
+              <span class="ci-key">근무 장소</span>
+              <span class="ci-colon">:</span>
+              <span class="cf-prefilled ci-val">서울특별시 서초구 양재대로 456번지 1층</span>
+            </div>
+
+            <div class="ci-row ci-row-multiline">
+              <div class="ci-row-top">
+                <span class="ci-num">3.</span>
+                <span class="ci-key">업무 내용</span>
+                <span class="ci-colon">:</span>
+                <input type="text" class="cf-input cf-active" id="c-work" placeholder="아래 6가지 중 하나를 골라 직접 입력하세요" style="flex:1;">
+              </div>
+              <div class="ci-work-choices">
+                <span class="work-chip">카페 서빙·음료 보조</span>
+                <span class="work-chip">편의점 계산·진열</span>
+                <span class="work-chip">패스트푸드 홀 서빙</span>
+                <span class="work-chip">마트 계산·포장 보조</span>
+                <span class="work-chip">음식점 서빙·설거지</span>
+                <span class="work-chip">배달 포장 보조</span>
+              </div>
+            </div>
+
+            <div class="ci-row ci-row-multiline">
+              <div class="ci-row-top">
+                <span class="ci-num">4.</span>
+                <span class="ci-key">소정근로시간</span>
+                <span class="ci-colon">:</span>
+                <span class="ci-val" style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                  <input type="text" class="cf-input cf-active" id="f-start" placeholder="시작 시각  예) 09시 00분" style="width:160px; flex:none;">
+                  <span style="font-size:12px; color:#666;">부터</span>
+                  <input type="text" class="cf-input cf-active" id="f-end" placeholder="종료 시각  예) 14시 00분" style="width:160px; flex:none;">
+                  <span style="font-size:12px; color:#666;">까지</span>
+                  <span style="font-size:12px; color:#888;">（휴게시간 : 12시 00분 ~ 12시 30분）</span>
+                </span>
+              </div>
+              <div class="ci-sub-note">※ 청소년은 하루 최대 <strong>7시간</strong>, 야간(22시 이후) 근로 <strong>금지</strong></div>
+            </div>
+
+            <div class="ci-row ci-row-multiline">
+              <div class="ci-row-top">
+                <span class="ci-num">5.</span>
+                <span class="ci-key">근무일/휴일</span>
+                <span class="ci-colon">:</span>
+                <span class="ci-val" style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                  <span style="font-size:12.5px; color:#555;">매주</span>
+                  <input type="text" class="cf-input cf-active" id="f-days" placeholder="요일 직접 입력  예) 토·일" style="width:160px; flex:none;">
+                  <span style="font-size:12px; color:#888;">근무 &nbsp;／&nbsp; 주휴일 매주 일요일</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="ci-row ci-row-multiline">
+              <div class="ci-row-top">
+                <span class="ci-num">6.</span>
+                <span class="ci-key">임 금</span>
+                <span class="ci-colon">:</span>
+              </div>
+              <div class="ci-wage-block">
+                <div class="ci-wage-row">
+                  <span class="ci-wage-label">시 급</span>
+                  <input type="text" class="cf-input cf-active" id="f-wage" placeholder="직접 입력  예) 10,320원">
+                  <span class="ci-wage-note">※ 최저임금 <strong>10,320원</strong> 이상</span>
+                </div>
+                <div class="ci-wage-row">
+                  <span class="ci-wage-label">상 여 금</span>
+                  <span class="cf-prefilled" style="width:auto; flex:1;">없음</span>
+                </div>
+                <div class="ci-wage-row">
+                  <span class="ci-wage-label">임금지급일</span>
+                  <span class="cf-prefilled" style="width:auto; flex:1;">매월 말일</span>
+                </div>
+                <div class="ci-wage-row">
+                  <span class="ci-wage-label">지급방법</span>
+                  <span class="cf-prefilled" style="width:auto; flex:1;">근로자 명의 예금통장에 입금</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ci-row">
+              <span class="ci-num">7.</span>
+              <span class="ci-key">연차유급휴가</span>
+              <span class="ci-colon">:</span>
+              <span class="cf-prefilled ci-val">근로기준법에서 정하는 바에 따라 부여함</span>
+            </div>
+
+            <div class="ci-row ci-row-multiline">
+              <div class="ci-row-top">
+                <span class="ci-num">8.</span>
+                <span class="ci-key">가족관계증명서 및 동의서</span>
+                <span class="ci-colon">:</span>
+              </div>
+              <div class="ci-docs-block">
+                <div class="ci-doc-row">
+                  <span class="ci-doc-label">가족관계기록사항 증명서 제출</span>
+                  <div class="ci-checkbox-group" onclick="toggleDocCheck(this)">
+                    <span class="doc-check-box" data-val="제출함">□ 제출함</span>
+                    <span class="doc-check-box" data-val="미제출">□ 미제출</span>
+                  </div>
+                </div>
+                <div class="ci-doc-row">
+                  <span class="ci-doc-label">친권자(후견인) 동의서 구비</span>
+                  <div class="ci-checkbox-group" onclick="toggleDocCheck(this)">
+                    <span class="doc-check-box" data-val="구비함">□ 구비함</span>
+                    <span class="doc-check-box" data-val="미구비">□ 미구비</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ci-row ci-row-multiline">
+              <div class="ci-row-top">
+                <span class="ci-num">9.</span>
+                <span class="ci-key">사회보험 적용</span>
+                <span class="ci-colon">:</span>
+              </div>
+              <div class="ci-insurance-static">
+                <div class="ins-static-row">
+                  <span class="ins-static-item ins-apply">☑ 고용보험</span>
+                  <span class="ins-static-item ins-apply">☑ 산재보험</span>
+                  <span class="ins-static-item ins-na">☐ 국민연금 <span class="ins-na-note">（18세 미만 적용 제외）</span></span>
+                  <span class="ins-static-item ins-na">☐ 건강보험 <span class="ins-na-note">（부모 피부양자 유지）</span></span>
+                </div>
+                <div class="ins-tip">💡 청소년 아르바이트는 <strong>고용보험·산재보험</strong>은 의무 가입! 국민연금·건강보험은 일반적으로 적용 제외됩니다.</div>
+              </div>
+            </div>
+
+            <div class="ci-row">
+              <span class="ci-num">10.</span>
+              <span class="ci-key">근로계약서 교부</span>
+              <span class="ci-colon">:</span>
+              <span class="cf-prefilled ci-val" style="font-size:12px;">사업주는 계약 체결 시 본 계약서를 사본하여 근로자에게 교부함 （근로기준법 제17조, 제67조）</span>
+            </div>
+
+          </div><!-- /contract-items -->
+
+          <!-- 서명란 -->
+          <div class="contract-sign-area">
+            <div class="sign-date-line">
+              <span class="cf-prefilled" style="width:auto; font-size:13px; border:none; font-weight:700;">2026년 12월 26일</span>
+            </div>
+
+            <div class="sign-two-col">
+              <div class="sign-party">
+                <div class="sign-party-title">사업주</div>
+                <div class="sign-party-row">
+                  <span class="sign-key">사업체명</span>
+                  <input type="text" class="cf-input cf-active sign-active" id="s-biz-name" placeholder="상호 입력">
+                </div>
+                <div class="sign-party-row">
+                  <span class="sign-key">주 &nbsp; &nbsp;소</span>
+                  <span class="cf-prefilled" style="font-size:12px;">서울특별시 서초구 양재대로 456번지</span>
+                </div>
+                <div class="sign-party-row">
+                  <span class="sign-key">대표자</span>
+                  <input type="text" class="cf-input cf-active sign-active" id="s-boss" placeholder="대표자 이름 입력">
+                  <span style="font-size:12px; color:#888; margin-left:4px;">(서명)</span>
+                </div>
+              </div>
+
+              <div class="sign-party">
+                <div class="sign-party-title">근로자</div>
+                <div class="sign-party-row">
+                  <span class="sign-key">주 &nbsp; &nbsp;소</span>
+                  <span class="cf-prefilled" style="font-size:12px;">서울특별시 서초구 내곡동 123번지</span>
+                </div>
+                <div class="sign-party-row">
+                  <span class="sign-key">연락처</span>
+                  <span class="cf-prefilled">010-1234-5678</span>
+                </div>
+                <div class="sign-party-row">
+                  <span class="sign-key">성 &nbsp; &nbsp;명</span>
+                  <input type="text" class="cf-input cf-active sign-active" id="s-worker" placeholder="근로자 이름 입력">
+                  <span style="font-size:12px; color:#888; margin-left:4px;">(서명)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contract-fill-legend">
+            ✏️ 표시(빨간 밑줄) 항목만 직접 입력하세요 &nbsp;|&nbsp; 나머지는 예시로 미리 채워진 내용입니다
+          </div>
+        </div>
+
+        <!-- 체크박스 목록 -->
+        <div class="check-section-title" style="margin-top:20px;">✅ 근로계약서 필수 확인 항목</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">🌙 야간근로(22시 이후) 금지 확인</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">📄 가족관계증명서 제출</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">✍️ 부모님(친권자) 동의서 제출</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">🖊️ 본인 직접 서명 완료</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════ MISSION 2 ══════ -->
+    <div class="mission-block">
+      <div class="mission-header">
+        <span class="mission-num">MISSION 02</span>
+        <span class="mission-title-text">임금체불 대응 & 감정 주도권</span>
+        <span class="mission-icon">⚔️</span>
+      </div>
+      <div class="mission-content">
+
+        <!-- 시나리오 -->
+        <div class="scenario-box">
+          <div class="scenario-tag">📰 시나리오</div>
+          <div class="scenario-text">
+            중학교 3학년 <strong>내곡이</strong>는 겨울방학을 맞아 동네 카페에서 아르바이트를 시작했다.<br>
+            그런데 사장님이 <span class="amount">3개월치 알바비 120만 원</span>을 계속 미루고 있다.<br>
+            "다음 달에 줄게"라는 말만 반복하며 입금이 없는 상황. 내곡이는 어떻게 해야 할까?
+          </div>
+        </div>
+
+        <!-- 감정 주도권 -->
+        <div class="emotion-section">
+          <div class="emotion-title">💡 사회정서교육 — 감정의 주도권</div>
+          <div class="emotion-q">
+            <label>Q1. 지금 내곡이의 기분은? 내가 내곡이라면 어떤 감정이 들지 직접 적어보세요.</label>
+            <input type="text" id="e-mood" placeholder="내 생각을 자유롭게 적어보세요">
+          </div>
+          <div class="emotion-q">
+            <label>Q2. 그 감정의 진짜 원인은 무엇일까요?</label>
+            <input type="text" id="e-cause" placeholder="직접 생각하고 적어보세요">
+            <div class="emotion-hint">💬 힌트: "나의 정당한 ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )이/가 ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )되었기 때문!"</div>
+          </div>
+          <div class="action-banner">
+            <span class="arrow">💪</span>
+            <span>핵심: 부정적 감정을 <u>알아차리고</u>, <strong>'진정서 제출'이라는 주도적 행동</strong>으로 방향을 바꾸자!</span>
+          </div>
+        </div>
+
+        <!-- 노동포털 정보 탐색 -->
+        <div class="section-divider"><span>🔍 고용노동부 노동포털 → 자주 찾는 민원 → 임금체불진정서</span></div>
+        <table class="portal-table">
+          <thead>
+            <tr>
+              <th>조사 항목</th>
+              <th>탐색 결과 입력</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>① 신청 자격</td>
+              <td><input type="text" id="p1" placeholder="직접 조사 후 입력하기"></td>
+            </tr>
+            <tr>
+              <td>② 처리 기간</td>
+              <td><input type="text" id="p2" placeholder="직접 조사 후 입력하기"></td>
+            </tr>
+            <tr>
+              <td>③ 민원 접수 방법</td>
+              <td><input type="text" id="p3" placeholder="직접 조사 후 입력하기"></td>
+            </tr>
+            <tr>
+              <td>④ 수수료</td>
+              <td><input type="text" id="p4" placeholder="직접 조사 후 입력하기"></td>
+            </tr>
+            <tr>
+              <td>⑤ 접수 및 처리 기관</td>
+              <td><input type="text" id="p5" placeholder="직접 조사 후 입력하기"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 필수 증거 수집 -->
+        <div class="section-divider"><span>🗂️ 필수 증거 수집 체크리스트</span></div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">🕐 출퇴근 기록 (캡처 or 수기)</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">💬 급여 관련 문자 메시지</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">🎙️ 사장과의 대화 녹취파일</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">📋 근로계약서 사본</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">🏦 통장 입금 내역 (미지급 확인)</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <input type="checkbox">
+            <div class="custom-check">✓</div>
+            <span class="check-label">📷 근무 장소·업무 증빙 사진</span>
+          </div>
+        </div>
+
+        <!-- 진정서 예시 보기 버튼 -->
+        <div class="petition-btn-wrap" style="margin-top:20px;">
+          <button class="btn-example" onclick="document.getElementById('petition-modal').classList.add('active')">
+            📄 [예시 보기] 임금체불 진정서 작성법
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════ 오늘의 다짐 ══════ -->
+    <div class="commitment-block">
+      <div class="commitment-label">✊ 오늘의 다짐</div>
+      <input class="commitment-input" type="text" id="commitment"
+        placeholder="노동권에 대해 배운 오늘, 나는 ...">
+    </div>
+
+  </div><!-- /sheet-body -->
+
+  <div class="sheet-footer">청소년 노동권 구조대 · 사회/도덕 수업 학습지 · 본 자료는 교육 목적으로 제작되었습니다.</div>
+
+</div><!-- /capture-area -->
+
+<!-- ══════ 진정서 모달 ══════ -->
+<div class="modal-overlay" id="petition-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>📄 임금체불 진정서 작성 예시</h3>
+      <button class="modal-close" onclick="document.getElementById('petition-modal').classList.remove('active')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="petition-sample">
+        <div class="p-title">진 정 서</div>
+        <div class="p-section">▶ 진정인 (근로자)</div>
+        이름: <span class="p-fill">홍길동</span> &nbsp; 생년월일: <span class="p-fill">2009.03.15</span><br>
+        주소: <span class="p-fill">○○시 ○○구 ○○동 ○○아파트</span><br>
+        연락처: <span class="p-fill">010-○○○○-○○○○</span>
+
+        <div class="p-section">▶ 피진정인 (사업주)</div>
+        상호명: <span class="p-fill">○○편의점</span><br>
+        대표자명: <span class="p-fill">김○○</span><br>
+        사업장 주소: <span class="p-fill">○○시 ○○구 ○○로 ○○번지</span>
+
+        <div class="p-section">▶ 진정 내용</div>
+        본인은 <span class="p-fill">2025년 9월 1일</span>부터 <span class="p-fill">2025년 11월 30일</span>까지
+        위 사업장에서 근무하였으나, 임금 총 <span class="p-fill">1,200,000원</span>을 지급받지 못하였습니다.<br><br>
+        사업주는 수차례 독촉에도 불구하고 지급을 미루고 있어, 근로기준법 제36조 및 제109조에 의거하여 진정을 제기합니다.
+
+        <div class="p-section">▶ 첨부 서류</div>
+        1. 근로계약서 사본 1부<br>
+        2. 출퇴근 기록 1부<br>
+        3. 급여 미지급 관련 문자 메시지 캡처 1부
+
+        <br><br>
+        <div style="text-align:right;">
+          <span class="p-fill">2025</span>년 <span class="p-fill">12</span>월 <span class="p-fill">○○</span>일<br>
+          진정인: <span class="p-fill">홍 길 동</span> (서명/인)
+        </div>
+      </div>
+      <div class="petition-tip">
+        💡 <strong>작성 팁</strong><br>
+        • 날짜·금액·장소는 최대한 구체적으로!<br>
+        • 고용노동부 홈페이지(moel.go.kr) → 민원마당 → 온라인 진정 신청 가능<br>
+        • 미성년자는 부모님과 함께 방문하거나 청소년근로권익센터(1644-3119) 무료 상담 이용
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SAVING OVERLAY -->
+<div class="saving-overlay" id="saving-overlay">
+  <div class="saving-spinner"></div>
+  <div class="saving-text">이미지 저장 중...</div>
+</div>
+
+<script>
+  // Work chip → fill input
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.work-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const input = document.getElementById('c-work');
+        if (input) input.value = chip.textContent;
+        document.querySelectorAll('.work-chip').forEach(c => c.style.background = '');
+        chip.style.background = 'var(--navy)';
+        chip.style.color = '#fff';
+        chip.style.borderColor = 'var(--navy)';
+      });
+    });
+  });
+
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+    const cb = el.querySelector('input[type="checkbox"]');
+    if (cb) cb.checked = el.classList.contains('checked');
+  }
+
+  function toggleDocCheck(groupEl) {
+    const boxes = groupEl.querySelectorAll('.doc-check-box');
+    // find which one was clicked
+    const clicked = event.target.closest('.doc-check-box');
+    if (!clicked) return;
+    boxes.forEach(b => b.classList.remove('checked'));
+    clicked.classList.add('checked');
+    // update text to show ■ vs □
+    boxes.forEach(b => {
+      b.textContent = (b.classList.contains('checked') ? '■ ' : '□ ') + b.dataset.val;
+    });
+  }
+
+  function toggleIns(el) {
+    el.classList.toggle('checked');
+  }
+
+  async function saveImage() {
+    const studentId = document.getElementById('student-id').value.trim() || '학번';
+    const studentName = document.getElementById('student-name').value.trim() || '이름';
+    const filename = `청소년구조대_${studentId}_${studentName}.png`;
+
+    // 모달 닫기
+    document.getElementById('petition-modal').classList.remove('active');
+
+    const overlay = document.getElementById('saving-overlay');
+    overlay.classList.add('active');
+
+    // 저장 바 숨기기
+    const saveBar = document.getElementById('save-bar');
+    saveBar.style.display = 'none';
+
+    try {
+      await new Promise(r => setTimeout(r, 100));
+      const canvas = await html2canvas(document.getElementById('capture-area'), {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#0D1B3E',
+        scrollY: -window.scrollY,
+        windowWidth: document.documentElement.offsetWidth,
+      });
+
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (e) {
+      alert('이미지 저장에 실패했습니다. 다시 시도해 주세요.');
+      console.error(e);
+    } finally {
+      saveBar.style.display = '';
+      overlay.classList.remove('active');
+    }
+  }
+
+  // 모달 배경 클릭 시 닫기
+  document.getElementById('petition-modal').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('active');
+  });
+</script>
+</body>
+</html>
